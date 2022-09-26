@@ -2,6 +2,8 @@
 include('../init.php');
 
 $GuestbookRepository = new App\Guestbook\GuestbookRepository($pdo);
+$UserRepository = new App\User\UserRepository($pdo);
+$tested = $UserRepository->fetchUser(1);
 
 if(empty($page)){
     $page = '';
@@ -11,8 +13,9 @@ if(empty($page)){
 
 if(isset($_POST['submit'])){
     $content = htmlspecialchars($_POST['content']);
+    $userid = 1;
     $status = 1;
-    $response = $GuestbookRepository->insertPost($content, $status);
+    $response = $GuestbookRepository->insertPost($content, $userid, $status);
 }
 
 ?>

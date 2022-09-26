@@ -3,6 +3,7 @@ namespace App\Guestbook;
 
 class GuestbookModel {
     public $id;
+    public $user;
     public $content;
     public $created_at;
     public $updated_at;
@@ -18,5 +19,7 @@ class GuestbookModel {
         $result = date('d.m.Y - H:i', $toTime);
         return $result;
     }
+
+
 
 }
